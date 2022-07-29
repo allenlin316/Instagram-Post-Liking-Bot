@@ -4,7 +4,7 @@
 Instagram Post-Liking Bot created with Python along with `selenium framework` can automatically give likes to any of your following or public account users 
 
 ## How to use
-* download the `.zip` file
+* ![download the `.zip` file](https://github.com/allenlin316/Instagram-Post-Liking-Bot/archive/refs/heads/master.zip)
 * you'll see the folder
 * open terminal in this folder path
 * execute following command
