@@ -8,8 +8,8 @@ Instagram Post-Liking Bot created with Python along with `selenium framework` ca
 * you'll see the folder
 * open terminal in this folder path
 * execute following command
-  * pip install chromedriver-autoinstaller, then press `Enter`
-  * pip install selenium, then press `Enter`
+  * `pip install chromedriver-autoinstaller` , then press `Enter`
+  * `pip install selenium` , then press `Enter`
 * open the `webCrawler.py` file (right click to select how to open, recommended using `vs code`)
 * input following information
   * UR_ACCOUNT (instagram account)
