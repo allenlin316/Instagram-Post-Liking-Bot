@@ -10,8 +10,8 @@ import time, json
 
 # define ur own account and password of instagram
 IG_LINK = "https://www.instagram.com/"
-UR_ACCOUNT = "Input your instagram account"
-UR_PASSWORD = "Input your instagram password"
+UR_ACCOUNT = "Type your instagram account here"
+UR_PASSWORD = "Type your instagram password here"
 target_username = "the instagram username you want to give likes to"
 target_username_link = IG_LINK + target_username
 
@@ -35,14 +35,15 @@ chrome = webdriver.Chrome()
 chrome.get(IG_LINK)
 
 # wait for account field to appear on screen
-element = WebDriverWait(chrome, 10).until(
+element = WebDriverWait(chrome, 10).until(        
         EC.presence_of_element_located((By.NAME, "username"))
     )
 
 # find HTML element of account, password fields and login button
 username = chrome.find_element(By.NAME, "username")
 password = chrome.find_element(By.NAME, "password")
-login_btn = chrome.find_element(By.XPATH, "/html/body/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[3]/button")
+# login_btn = chrome.find_element(By.CLASS_NAME, "_acan")
+login_btn = chrome.find_element(By.XPATH, "//button[@type='submit']")
 
 # login to instagram
 print("type in username")
@@ -53,19 +54,20 @@ password.send_keys(UR_PASSWORD)
 time.sleep(1)
 print("login to instagram")
 login_btn.click()
+time.sleep(2)
 
 # wait for notifications to appear on page and then click the ignore buttons
 element = WebDriverWait(chrome, 10).until(
-        EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/section/main/div/div/div/div/button"))
+        EC.presence_of_element_located((By.XPATH, "//button[@type='button'][text()='稍後再說']"))
     )
 print("clicked the not-store button")
-chrome.find_element(By.XPATH, "/html/body/div[1]/section/main/div/div/div/div/button").click()
+chrome.find_element(By.XPATH, "//button[@type='button'][text()='稍後再說']").click()
 element = WebDriverWait(chrome, 10).until(
-        EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div/div/div/div[3]/button[2]"))
+        EC.presence_of_element_located((By.XPATH, "//button[@class='_a9-- _a9_1']"))
     )
 time.sleep(1)
 print("click ignore notification button")
-chrome.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div/div/div/div[3]/button[2]").click()
+chrome.find_element(By.XPATH, "//button[@class='_a9-- _a9_1']").click()
 time.sleep(2)
 
 # search target instagram account
@@ -81,7 +83,7 @@ element = WebDriverWait(chrome, 10).until(
         EC.presence_of_element_located((By.XPATH, "(//button[@class = '_abl-'])[4]"))
     )
 like_btn = chrome.find_element(By.XPATH, "(//button[@class = '_abl-'])[4]")
-next_post_btn = chrome.find_element(By.XPATH, "(//button[@class = '_abl-'])[2]")
+next_post_btn = chrome.find_element(By.XPATH, "(//button[@class = '_abl-'])[3]")
 # give like if it's not given
 checkAndGiveLike(like_btn)
 time.sleep(2)
