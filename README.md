@@ -18,8 +18,8 @@ Instagram Post-Liking Bot created with Python along with `selenium framework` ca
 
 ```
 # code snapshot
-UR_ACCOUNT = "Input your instagram account"
-UR_PASSWORD = "Input your instagram password"
+UR_ACCOUNT = "Type your instagram account here"
+UR_PASSWORD = "Type your instagram password here"
 target_username = "the instagram username you want to give likes to"
 ```
 
